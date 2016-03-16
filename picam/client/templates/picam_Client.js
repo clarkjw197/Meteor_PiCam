@@ -1,6 +1,6 @@
 var typeStore = new ReactiveVar()
 
-Template.dashboard.onCreated(function () {
+Template.Slides.onCreated(function () {
   var tpl = this
   tpl.autorun(function () {
     var opts = {}
@@ -10,7 +10,7 @@ Template.dashboard.onCreated(function () {
   })
 })
 
-Template.dashboard.events({
+Template.Slides.events({
   'click [data-type]': function (evt, tpl) {
     typeStore.set(tpl.$(evt.currentTarget).data('type'))
   }
@@ -30,7 +30,7 @@ Template.registerHelper('testDocs', function () {
 
 Accounts.onLogin(function () {
   if (FlowRouter.current().route.group.name === 'public') {
-    FlowRouter.go('dashboard')
+    FlowRouter.go('Slides')
   }
 })
 
@@ -41,6 +41,7 @@ Tracker.autorun(function () {
 })
 
 Template.video.onRendered(function () {
+  if (FlowRouter.current().route.group.name === 'Picam'){
     var video = document.querySelector("#videoElement");
  
               navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -56,5 +57,5 @@ Template.video.onRendered(function () {
               function videoError(e) {
                   // do something
               }
-
+}
 });

@@ -2,12 +2,12 @@
 
 function redirectIfLoggedIn (ctx, redirect) {
   if (Meteor.userId()) {
-    redirect('/dashboard')
+    redirect('/')
   }
 }
 
 function checkLoggedIn (ctx, redirect) {
-  if (!Meteor.userId() && !Meteor.loggingIn()) {
+  if (Meteor.userId() != "X7RsjK7KWxBu3ejMr" && !Meteor.loggingIn()) {
     redirect('/')
   }
 }
@@ -39,17 +39,17 @@ publicRoutes.route('/public', {
 })
 
 var privateRoutes = FlowRouter.group({
-  name: 'private',
+  name: 'Picam',
   triggersEnter: [
     checkLoggedIn
   ]
 })
 
-privateRoutes.route('/private', {
-  name: 'private',
+privateRoutes.route('/Picam', {
+  name: 'Picam',
   triggersEnter: [],
   action: function (params, queryParams) {
-    BlazeLayout.render('layout', {template: 'private'})
+    BlazeLayout.render('layout', {template: 'Picam'})
   },
   subscriptions: function (params, queryParams) {
     var opts = {}
@@ -59,11 +59,11 @@ privateRoutes.route('/private', {
   triggersExit: []
 })
 
-privateRoutes.route('/dashboard', {
-  name: 'dashboard',
+privateRoutes.route('/Slides', {
+  name: 'Slides',
   triggersEnter: [],
   action: function (params, queryParams) {
-    BlazeLayout.render('layout', {template: 'dashboard'})
+    BlazeLayout.render('layout', {template: 'Slides'})
   },
   triggersExit: []
 })

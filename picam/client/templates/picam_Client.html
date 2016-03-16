@@ -20,22 +20,17 @@
   <h1>This is a public page</h1>
 </template>
 
-<template name="private">
-  <h1>This is a private page</h1>
+<template name="Picam">
+  <h1>Picam</h1>
   {{> table}}
-  <a href="/private?type=foo">Foo</a>
-  <a href="/private?type=bar">Bar</a>
-  <a href="/private?type=">All</a>
 
   {{> video}}
 </template>
 
-<template name="dashboard">
-  <h1>This is a dashboard</h1>
-  <button data-type="foo">Foo</button>
-  <button data-type="bar">Bar</button>
-  <button data-type="">All</button>
+<template name="Slides">
+  <h1>Slides</h1>
   {{> table}}
+  <iframe src="https://docs.google.com/presentation/d/11NDZNoUQHrqgAskUocP4n1MaAy5MtI_M8c5RcisvaCU/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </template>
 
 <template name="table">
